@@ -1,0 +1,61 @@
+EmbeddedCodingTool — End User License Agreement
+Copyright (c) 2026 Dmytro Skrypka. All rights reserved.
+
+Version 1.0 — effective on installation.
+
+By installing or using this software ("the Software"), you agree to the
+following terms. If you do not agree, do not install or use the Software.
+
+1. GRANT OF LICENSE
+   You are granted a free, non-exclusive, non-transferable license to install
+   and use the Software for personal, educational, classroom, and non-commercial
+   purposes, on any number of devices.
+
+2. PERMITTED USE
+   - Use by students, teachers, schools, hobbyists, and makers.
+   - Use in classrooms, workshops, after-school clubs, and STEM laboratories.
+   - Free internal distribution within a school or educational organization.
+   - Creating and sharing your own projects (.json files) made with the Software.
+
+3. RESTRICTIONS
+   You may NOT:
+   (a) sell, sublicense, rent, or lease the Software, or charge any fee for
+       access to it, except for the cost of physical media or reasonable
+       distribution costs;
+   (b) modify, reverse engineer, decompile, or disassemble the Software, except
+       to the extent expressly permitted by applicable law;
+   (c) remove or alter any copyright, trademark, or attribution notices;
+   (d) redistribute modified versions of the Software, or repackage it under a
+       different name or brand, without prior written permission from the
+       copyright holder;
+   (e) use the Software or its name to imply endorsement of any third-party
+       product or service without written permission.
+
+4. PROJECT FILES YOU CREATE
+   Project files (.json), generated Arduino code, and any content you create
+   using the Software belong to you. This license places no restrictions on
+   what you do with your own creations.
+
+5. NO WARRANTY
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. THE AUTHORS ARE NOT
+   RESPONSIBLE FOR ANY DAMAGE TO HARDWARE, LOSS OF DATA, OR ANY OTHER LOSS
+   ARISING FROM USE OF THE SOFTWARE.
+
+6. THIRD-PARTY COMPONENTS
+   The Software includes third-party open-source libraries (including SFML,
+   Dear ImGui, imgui-node-editor, nlohmann/json, spdlog, and others), each
+   under their own respective licenses. Those licenses are included with the
+   Software and continue to apply to those components.
+
+7. TERMINATION
+   This license terminates automatically if you violate any of its terms. On
+   termination, you must stop using and uninstall the Software.
+
+8. GOVERNING LAW
+   This agreement is governed by the laws of Ukraine. Any disputes shall be
+   resolved in Ukrainian courts, unless otherwise required by local consumer
+   protection law.
+
+Contact: contact@bloxino.org
