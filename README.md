@@ -4,6 +4,8 @@
 
 Bloxino is a desktop application for teaching Arduino programming through visual blocks. Drag blocks, connect them, and see your code execute on real hardware in real time.
 
+![Bloxino editor screenshot](Screenshot%202026-04-09%20181229.png)
+
 ## Features
 
 - **Live bytecode execution** — no compile/upload cycle. Changes run instantly on the Arduino board via a 58-opcode stack VM
