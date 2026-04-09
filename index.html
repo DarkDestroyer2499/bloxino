@@ -20,6 +20,43 @@
 
         .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 
+        /* Language switcher */
+        .lang-switch {
+            position: fixed;
+            top: 16px;
+            right: 24px;
+            z-index: 100;
+            display: flex;
+            gap: 4px;
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 8px;
+            padding: 4px;
+        }
+        .lang-switch button {
+            background: none;
+            border: none;
+            color: #607080;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .lang-switch button.active {
+            background: #4fc3f7;
+            color: #0a0e17;
+        }
+        .lang-switch button:hover:not(.active) {
+            color: #e0e0e0;
+        }
+
+        /* Hide inactive language */
+        [data-lang="uk"] { display: none; }
+        body.uk [data-lang="en"] { display: none; }
+        body.uk [data-lang="uk"] { display: revert; }
+
         /* Hero */
         .hero {
             text-align: center;
@@ -192,30 +229,45 @@
             .hero h1 { font-size: 32px; }
             .hero .tagline { font-size: 16px; }
             .features-grid { grid-template-columns: 1fr; }
+            .lang-switch { top: 8px; right: 8px; }
         }
     </style>
 </head>
 <body>
 
+<!-- Language switcher -->
+<div class="lang-switch">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-uk" onclick="setLang('uk')">UK</button>
+</div>
+
+<!-- ==================== HERO ==================== -->
 <section class="hero">
     <div class="container">
         <h1>Blox<span>.ino</span></h1>
-        <p class="tagline">Visual block programming for Arduino — free, offline, in Ukrainian and English</p>
-        <a href="https://github.com/DarkDestroyer2499/bloxino/releases/latest" class="download-btn">Download for Windows</a>
+        <p class="tagline" data-lang="en">Visual block programming for Arduino — free, offline, in Ukrainian and English</p>
+        <p class="tagline" data-lang="uk">Візуальне блочне програмування Arduino — безкоштовно, офлайн, українською та англійською</p>
+        <a href="https://github.com/DarkDestroyer2499/bloxino/releases/latest" class="download-btn" data-lang="en">Download for Windows</a>
+        <a href="https://github.com/DarkDestroyer2499/bloxino/releases/latest" class="download-btn" data-lang="uk">Завантажити для Windows</a>
         <p class="download-meta">v0.9.0 &middot; ~50 MB &middot; Windows 7+ (64-bit) &middot; Free</p>
     </div>
 </section>
 
+<!-- ==================== SCREENSHOT ==================== -->
 <section class="screenshot">
     <div class="container">
         <img src="Screenshot%202026-04-09%20181229.png" alt="Bloxino editor showing visual block programming with Arduino">
     </div>
 </section>
 
+<!-- ==================== FEATURES ==================== -->
 <section class="features">
     <div class="container">
-        <h2>Why Bloxino?</h2>
-        <div class="features-grid">
+        <h2 data-lang="en">Why Bloxino?</h2>
+        <h2 data-lang="uk">Чому Bloxino?</h2>
+
+        <!-- EN features -->
+        <div class="features-grid" data-lang="en">
             <div class="feature-card">
                 <h3>Live Execution</h3>
                 <p>No compile/upload cycle. Your blocks execute instantly on the Arduino board via a 58-opcode bytecode VM. Students see results in real time.</p>
@@ -253,35 +305,100 @@
                 <p>Built in C++/SFML. Sub-second startup, 60fps, runs on old school PCs. No Electron bloat — 50 MB vs competitors' 200-831 MB.</p>
             </div>
         </div>
+
+        <!-- UK features -->
+        <div class="features-grid" data-lang="uk">
+            <div class="feature-card">
+                <h3>Живе виконання</h3>
+                <p>Без циклу компіляції/завантаження. Блоки виконуються миттєво на платі Arduino через 58-опкодну байткод VM. Учні бачать результат у реальному часі.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Анімація потоку сигналів</h3>
+                <p>Спостерігайте, як програма тече через з'єднання між блоками. Учні візуально розуміють, як виконується код — жоден інший інструмент цього не робить.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Debug Overlay у реальному часі</h3>
+                <p>Значення пінів відображаються прямо на блоках під час виконання. Бачте стани HIGH/LOW, аналогові значення та змінні наживо.</p>
+            </div>
+            <div class="feature-card">
+                <h3>5 тематичних середовищ</h3>
+                <p>Космос, Океан, Джунглі, Темна та М'яка — кожна з унікальними шрифтами, кольорами та візуальними ефектами. Дітям подобається обирати свою тему.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Контроль вчителя</h3>
+                <p>4 рівні учнів з перемикачами функцій та JSON-профілями обмежень. Контролюйте, що саме доступно учням. Безкоштовно, вбудовано.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Працює з будь-яким Arduino</h3>
+                <p>Uno, Nano, Mega, Leonardo, ESP32. Без пропрієтарного обладнання. Працює з Arduino клонами за $5 з будь-якого магазину.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Повна офлайн-підтримка</h3>
+                <p>Інсталятор 50 МБ. Працює без інтернету. Без акаунтів, без хмарної залежності. Ідеально для класів з нестабільним підключенням.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Чиста генерація коду</h3>
+                <p>Генерує читабельний Arduino C++ з типізованими змінними (int, float, bool, string). Учні бачать справжній код, не абстракцію.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Нативна продуктивність</h3>
+                <p>Побудований на C++/SFML. Запуск за секунду, 60fps, працює на старих шкільних ПК. Без Electron — 50 МБ замість 200-831 МБ у конкурентів.</p>
+            </div>
+        </div>
     </div>
 </section>
 
+<!-- ==================== COST ==================== -->
 <section class="cost">
     <div class="container">
-        <h2>Classroom Cost</h2>
-        <p class="subtitle">Equip a class of 25 students</p>
+        <h2 data-lang="en">Classroom Cost</h2>
+        <h2 data-lang="uk">Вартість класу</h2>
+        <p class="subtitle" data-lang="en">Equip a class of 25 students</p>
+        <p class="subtitle" data-lang="uk">Обладнання для класу з 25 учнів</p>
         <table>
             <thead>
-                <tr><th>Solution</th><th>Cost</th></tr>
+                <tr>
+                    <th data-lang="en">Solution</th>
+                    <th data-lang="en">Cost</th>
+                    <th data-lang="uk">Рішення</th>
+                    <th data-lang="uk">Вартість</th>
+                </tr>
             </thead>
             <tbody>
-                <tr class="highlight"><td>Bloxino + Arduino clones</td><td>~$125</td></tr>
-                <tr><td>mBlock + mBot kits</td><td>$2,475+</td></tr>
-                <tr><td>PictoBlox + Quarky kits</td><td>$3,750+</td></tr>
-                <tr><td>LEGO Education WeDo 2.0</td><td>$2,900+</td></tr>
+                <tr class="highlight">
+                    <td data-lang="en">Bloxino + Arduino clones</td><td data-lang="en">~$125</td>
+                    <td data-lang="uk">Bloxino + Arduino клони</td><td data-lang="uk">~$125 (~5,100 грн)</td>
+                </tr>
+                <tr>
+                    <td data-lang="en">mBlock + mBot kits</td><td data-lang="en">$2,475+</td>
+                    <td data-lang="uk">mBlock + mBot набори</td><td data-lang="uk">$2,475+ (~101,000 грн)</td>
+                </tr>
+                <tr>
+                    <td data-lang="en">PictoBlox + Quarky kits</td><td data-lang="en">$3,750+</td>
+                    <td data-lang="uk">PictoBlox + Quarky набори</td><td data-lang="uk">$3,750+ (~153,000 грн)</td>
+                </tr>
+                <tr>
+                    <td data-lang="en">LEGO Education WeDo 2.0</td><td data-lang="en">$2,900+</td>
+                    <td data-lang="uk">LEGO Education WeDo 2.0</td><td data-lang="uk">$2,900+ (~118,000 грн)</td>
+                </tr>
             </tbody>
         </table>
     </div>
 </section>
 
+<!-- ==================== CTA ==================== -->
 <section class="cta">
     <div class="container">
-        <h2>Ready to try it?</h2>
-        <p>Free for students, teachers, and schools. No account required.</p>
-        <a href="https://github.com/DarkDestroyer2499/bloxino/releases/latest" class="download-btn">Download Bloxino</a>
+        <h2 data-lang="en">Ready to try it?</h2>
+        <h2 data-lang="uk">Готові спробувати?</h2>
+        <p data-lang="en">Free for students, teachers, and schools. No account required.</p>
+        <p data-lang="uk">Безкоштовно для учнів, вчителів та шкіл. Без реєстрації.</p>
+        <a href="https://github.com/DarkDestroyer2499/bloxino/releases/latest" class="download-btn" data-lang="en">Download Bloxino</a>
+        <a href="https://github.com/DarkDestroyer2499/bloxino/releases/latest" class="download-btn" data-lang="uk">Завантажити Bloxino</a>
     </div>
 </section>
 
+<!-- ==================== FOOTER ==================== -->
 <footer class="footer">
     <div class="container">
         <div class="links">
@@ -291,6 +408,29 @@
         <p>&copy; 2026 Dmytro Skrypka. All rights reserved.</p>
     </div>
 </footer>
+
+<script>
+function setLang(lang) {
+    if (lang === 'uk') {
+        document.body.classList.add('uk');
+    } else {
+        document.body.classList.remove('uk');
+    }
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-uk').classList.toggle('active', lang === 'uk');
+    localStorage.setItem('bloxino-lang', lang);
+}
+
+// Auto-detect: use saved preference, or browser language, or default to English
+(function() {
+    var saved = localStorage.getItem('bloxino-lang');
+    if (saved) {
+        setLang(saved);
+    } else if (navigator.language && navigator.language.startsWith('uk')) {
+        setLang('uk');
+    }
+})();
+</script>
 
 </body>
 </html>
