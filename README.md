@@ -8,16 +8,14 @@ Bloxino is a desktop application for teaching Arduino programming through visual
 
 ## Features
 
-- **Live bytecode execution** — no compile/upload cycle. Changes run instantly on the Arduino board via a 58-opcode stack VM
-- **Signal flow animation** — watch your program flow through the wires between blocks in real time
-- **Real-time debug overlay** — see pin values displayed directly on blocks during execution
-- **5 themed environments** — Space, Ocean, Jungle, Dark, and Soft Rounded, each with unique fonts, colors, and visual effects
-- **Teacher control** — 4 student levels, per-feature toggles, JSON restriction profiles. Free, built-in
-- **Works with any Arduino** — Uno, Nano, Mega, Leonardo, ESP32. No proprietary hardware. Works with $5 Arduino clones
-- **Native performance** — ~50 MB installer, sub-second startup, 60fps. No Electron, no browser, no cloud dependency
-- **Full offline support** — works without internet. Ideal for classrooms with unreliable connectivity
-- **58 block types** — digital/analog I/O, variables, math, logic, loops, functions, serial, LCD, servo, tone, DHT, ultrasonic, and more
-- **Clean C++ code generation** — typed variables (int, float, bool, string), readable output
+- **Instant results** — no waiting for code to compile and upload. Changes run on the Arduino board immediately
+- **See how code runs** — animated signal flow shows the path your program takes through the blocks
+- **Live pin values** — see what's happening on every pin directly on the blocks while the program runs
+- **5 themed environments** — Space, Ocean, Jungle, Dark, and Soft Rounded. Kids pick their favorite and start coding
+- **Teacher control** — limit what students can access with 4 difficulty levels. Free, built-in
+- **Any Arduino board** — Uno, Nano, Mega, Leonardo, ESP32. No special hardware needed
+- **Works offline** — 50 MB install, runs without internet. Works on old school computers
+- **Real code output** — students see the actual Arduino C++ code their blocks generate
 - **Ukrainian and English** interface
 
 ## Download
