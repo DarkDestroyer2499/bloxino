@@ -224,12 +224,57 @@
         .footer .links { margin-bottom: 8px; }
         .footer .links a { margin: 0 12px; }
 
-        /* Responsive */
+        /* Responsive — tablets */
+        @media (max-width: 768px) {
+            .features-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .cost table { font-size: 14px; }
+            .cost th, .cost td { padding: 10px 12px; }
+        }
+
+        /* Responsive — phones */
         @media (max-width: 600px) {
+            .hero { padding: 48px 16px 24px; }
             .hero h1 { font-size: 32px; }
-            .hero .tagline { font-size: 16px; }
-            .features-grid { grid-template-columns: 1fr; }
-            .lang-switch { top: 8px; right: 8px; }
+            .hero .tagline { font-size: 16px; padding: 0 8px; }
+            .hero .download-btn { font-size: 16px; padding: 14px 32px; width: 100%; max-width: 320px; }
+            .hero .download-meta { font-size: 12px; }
+
+            .screenshot { padding: 16px 16px 32px; }
+            .screenshot img { border-radius: 8px; }
+
+            .features { padding: 32px 0; }
+            .features h2 { font-size: 24px; margin-bottom: 24px; }
+            .features-grid { grid-template-columns: 1fr; gap: 12px; }
+            .feature-card { padding: 16px; }
+            .feature-card h3 { font-size: 15px; }
+            .feature-card p { font-size: 13px; }
+
+            .cost { padding: 32px 0; }
+            .cost h2 { font-size: 24px; }
+            .cost .subtitle { font-size: 14px; }
+            .cost table { font-size: 13px; }
+            .cost th, .cost td { padding: 10px 8px; }
+            .cost tr.highlight td { font-size: 14px; }
+
+            .cta { padding: 40px 16px; }
+            .cta h2 { font-size: 22px; }
+            .cta p { font-size: 14px; }
+            .cta .download-btn { font-size: 16px; padding: 14px 32px; width: 100%; max-width: 320px; }
+
+            .container { padding: 0 16px; }
+
+            .lang-switch { top: 8px; right: 8px; padding: 3px; }
+            .lang-switch button { padding: 5px 10px; font-size: 12px; }
+
+            .footer { padding: 24px 16px; font-size: 12px; }
+            .footer .links a { margin: 0 8px; }
+        }
+
+        /* Prevent table overflow on very small screens */
+        .cost table {
+            display: block;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
     </style>
 </head>
