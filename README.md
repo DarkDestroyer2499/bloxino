@@ -31,12 +31,14 @@ Requirements:
 
 ## Classroom cost
 
-| Solution | Cost for 25 students |
+12 students, 1 kit per student, full Arduino kits with all sensors included.
+
+| Solution | Cost (12 kits) |
 |---|---|
-| **Bloxino + Arduino clones** | **~$125** (free software + $5/board) |
-| mBlock + mBot | $2,475+ |
-| PictoBlox + Quarky | $3,750+ |
-| LEGO Education WeDo 2.0 | $2,900+ |
+| **Bloxino + Arduino starter kits** | **~$468** (free software + ~$39/kit) |
+| mBlock + mBot kits | $1,200–1,800 |
+| PictoBlox + Quarky kits | $1,800+ |
+| LEGO Education WeDo 2.0 | $2,400+ |
 
 ## Contact
 
