@@ -11,7 +11,7 @@ Bloxino is a desktop application for teaching Arduino programming through visual
 - **Instant results** — no waiting for code to compile and upload. Changes run on the Arduino board immediately
 - **See how code runs** — animated signal flow shows the path your program takes through the blocks
 - **Live pin values** — see what's happening on every pin directly on the blocks while the program runs
-- **5 themed environments** — Space, Ocean, Jungle, Dark, and Soft Rounded. Kids pick their favorite and start coding
+- **5 themed environments** — Candy, Space, Ocean, Jungle, and Soft Rounded. Kids pick their favorite and start coding
 - **Teacher control** — limit what students can access with 4 difficulty levels. Free, built-in
 - **Any Arduino board** — Uno, Nano, Mega, Leonardo, ESP32. No special hardware needed
 - **Works offline** — 50 MB install, runs without internet. Works on old school computers
@@ -20,7 +20,7 @@ Bloxino is a desktop application for teaching Arduino programming through visual
 
 ## Download
 
-**[Download Bloxino v0.9.0 for Windows](https://github.com/DarkDestroyer2499/bloxino/releases/latest)**
+**[Download Bloxino for Windows](https://bloxino.org)**
 
 Requirements:
 - Windows 7 or later (64-bit)

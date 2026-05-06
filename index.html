@@ -88,10 +88,20 @@
         }
         .lang-switch button:hover:not(.active) { color: var(--text); }
 
-        /* ── Language toggle ── */
-        [data-lang="uk"] { display: none; }
+        /* ── Language toggle ──
+           Higher-specificity selectors so we beat any later class-only
+           rule (e.g. .btn-primary { display: inline-flex; }). Without the
+           `body` qualifier, [data-lang="uk"] (specificity 0,1,0) tied with
+           .btn-primary (0,1,0) and lost on source order — both EN and UK
+           Download buttons rendered side-by-side. We also drop the
+           previous `display: revert` hack because reverting from the
+           author cascade lands on the UA default (`inline` for <a>),
+           which broke the `.btn-primary { display: inline-flex; }`
+           layout in UK mode. The current rules just hide whichever
+           language isn't active and let each element keep its native
+           display value. */
+        body:not(.uk) [data-lang="uk"] { display: none; }
         body.uk [data-lang="en"] { display: none; }
-        body.uk [data-lang="uk"] { display: revert; }
 
         /* ── Nav bar ── */
         .navbar {
@@ -549,8 +559,8 @@
         <div class="hero-inner">
             <div class="hero-badge">
                 <span class="dot"></span>
-                <span data-lang="en">v0.9.0 — Free &amp; Open Source</span>
-                <span data-lang="uk">v0.9.0 — Безкоштовно та відкритий код</span>
+                <span data-lang="en">v0.9.0 — Free, forever</span>
+                <span data-lang="uk">v0.9.0 — Безкоштовно, назавжди</span>
             </div>
 
             <h1>Blox<span>.ino</span></h1>
@@ -626,7 +636,7 @@
             <div class="feature-card">
                 <div class="feature-icon">🎨</div>
                 <h3>5 Themed Environments</h3>
-                <p>Space, Ocean, Jungle, Dark, and Soft Rounded. Kids pick their favorite and start coding.</p>
+                <p>Candy, Space, Ocean, Jungle, and Soft Rounded. Kids pick their favorite and start coding.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🎓</div>
@@ -675,7 +685,7 @@
             <div class="feature-card">
                 <div class="feature-icon">🎨</div>
                 <h3>5 тематичних середовищ</h3>
-                <p>Космос, Океан, Джунглі, Темна та М'яка. Діти обирають улюблену тему і починають програмувати.</p>
+                <p>Цукерка, Космос, Океан, Джунглі та М'яка. Діти обирають улюблену тему і починають програмувати.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🎓</div>
@@ -777,7 +787,7 @@
 <footer class="footer">
     <div class="footer-brand">Blox<span>.ino</span></div>
     <div class="footer-links">
-        <a href="mailto:dmytro@bloxino.app">Email</a>
+        <a href="mailto:contact@bloxino.org">Email</a>
         <a href="https://github.com/DarkDestroyer2499/bloxino">GitHub</a>
     </div>
     <div class="footer-copy">&copy; 2026 Dmytro Skrypka</div>
