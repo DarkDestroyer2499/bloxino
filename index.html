@@ -812,6 +812,41 @@ var observer = new IntersectionObserver(function(entries) {
 document.querySelectorAll('.reveal').forEach(function(el) {
     observer.observe(el);
 });
+
+// Resolve the download buttons to the actual latest installer URL.
+//
+// Without this, every "Download for Windows" button points at
+// github.com/DarkDestroyer2499/bloxino/releases/latest — which is the
+// public Pages repo whose only release is v0.9.0 from April. Real
+// releases live on the private EmbeddedCodingTool repo and ship the EXE
+// to /updates/ on this same site, so the freshest source of truth is
+// /updates/version.json (read by the in-app auto-updater too).
+//
+// Strategy: on page load, fetch version.json and rewrite every anchor
+// whose href ends in "releases/latest" to the direct installer URL. If
+// the fetch fails (offline preview, deploy lag, etc.), the existing
+// GitHub link stays as a graceful fallback.
+(function rewriteDownloadLinks() {
+    fetch('/updates/version.json', { cache: 'no-cache' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (info) {
+            if (!info || !info.url) return;
+            var links = document.querySelectorAll('a[href*="releases/latest"]');
+            links.forEach(function (a) {
+                a.href = info.url;
+            });
+            // Stamp the version + release date next to the hero meta so
+            // visitors can see at a glance which build they'll get.
+            if (info.latest) {
+                document.querySelectorAll('.download-meta span[data-lang]').forEach(function (span) {
+                    var sep = ' · ';
+                    var label = span.getAttribute('data-lang') === 'uk' ? 'версія' : 'version';
+                    span.innerHTML += sep + label + ' ' + info.latest;
+                });
+            }
+        })
+        .catch(function () { /* keep the static fallback link */ });
+})();
 </script>
 </body>
 </html>
