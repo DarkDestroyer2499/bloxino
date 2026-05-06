@@ -836,19 +836,19 @@ document.querySelectorAll('.reveal').forEach(function(el) {
                 a.href = info.url;
             });
             if (!info.latest) return;
-            // Replace the literal "v0.9.x" prefix wherever it appears in
-            // a [data-lang] span — covers both the hero badge and any
-            // future copy that mentions the current version. We use a
-            // regex bounded by word boundaries so we don't accidentally
-            // rewrite v0.9.0 inside historical changelog text.
+            // Rewrite any "vX.Y.Z" version reference in a [data-lang]
+            // text node — covers the hero badge ("v0.9.0 — Free & Open
+            // Source") and any future copy that mentions the version.
+            // Allocate a fresh regex per iteration so there's no shared
+            // /g lastIndex to leak state between elements (an earlier
+            // version of this code did and the badge silently skipped
+            // its replace on some pages).
             var ver = info.latest;
-            var re = /v\d+\.\d+\.\d+/g;
             document.querySelectorAll('[data-lang]').forEach(function (el) {
                 if (el.children.length > 0) return;  // text-only nodes
-                if (re.test(el.textContent)) {
-                    el.textContent = el.textContent.replace(re, 'v' + ver);
-                    re.lastIndex = 0;  // reset stateful regex
-                }
+                var oldText = el.textContent;
+                var newText = oldText.replace(/v\d+\.\d+\.\d+/g, 'v' + ver);
+                if (newText !== oldText) el.textContent = newText;
             });
             // Stamp the version on the hero meta so visitors see exactly
             // which build clicking Download will get them.
