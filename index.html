@@ -835,15 +835,30 @@ document.querySelectorAll('.reveal').forEach(function(el) {
             links.forEach(function (a) {
                 a.href = info.url;
             });
-            // Stamp the version + release date next to the hero meta so
-            // visitors can see at a glance which build they'll get.
-            if (info.latest) {
-                document.querySelectorAll('.download-meta span[data-lang]').forEach(function (span) {
-                    var sep = ' · ';
-                    var label = span.getAttribute('data-lang') === 'uk' ? 'версія' : 'version';
-                    span.innerHTML += sep + label + ' ' + info.latest;
-                });
-            }
+            if (!info.latest) return;
+            // Replace the literal "v0.9.x" prefix wherever it appears in
+            // a [data-lang] span — covers both the hero badge and any
+            // future copy that mentions the current version. We use a
+            // regex bounded by word boundaries so we don't accidentally
+            // rewrite v0.9.0 inside historical changelog text.
+            var ver = info.latest;
+            var re = /v\d+\.\d+\.\d+/g;
+            document.querySelectorAll('[data-lang]').forEach(function (el) {
+                if (el.children.length > 0) return;  // text-only nodes
+                if (re.test(el.textContent)) {
+                    el.textContent = el.textContent.replace(re, 'v' + ver);
+                    re.lastIndex = 0;  // reset stateful regex
+                }
+            });
+            // Stamp the version on the hero meta so visitors see exactly
+            // which build clicking Download will get them.
+            document.querySelectorAll('.download-meta span[data-lang]').forEach(function (span) {
+                var sep = ' · ';
+                var label = span.getAttribute('data-lang') === 'uk' ? 'версія' : 'version';
+                if (span.textContent.indexOf(label + ' ' + ver) === -1) {
+                    span.innerHTML += sep + label + ' ' + ver;
+                }
+            });
         })
         .catch(function () { /* keep the static fallback link */ });
 })();
