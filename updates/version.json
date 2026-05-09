@@ -1,7 +1,7 @@
 {
+  "sha256": "16ccbf017e49519d474b17759f05a052a1b4a225848c8bb49e4fd6bf9a45c40e",
+  "url": "https://bloxino.org/updates/Bloxino-0.9.35-Setup.exe",
+  "release_notes_url": "https://github.com/DarkDestroyer2499/EmbeddedCodingTool/releases/tag/v0.9.35",
   "released_at": "2026-05-09",
-  "release_notes_url": "https://github.com/DarkDestroyer2499/EmbeddedCodingTool/releases/tag/v0.9.34",
-  "sha256": "7be9fec366571fe383600a5bb5c34951acf9700da98b98bff64ef2aabed34862",
-  "url": "https://bloxino.org/updates/Bloxino-0.9.34-Setup.exe",
-  "latest": "0.9.34"
+  "latest": "0.9.35"
 }
