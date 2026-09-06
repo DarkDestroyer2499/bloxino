@@ -1,7 +1,7 @@
 {
-  "url": "https://bloxino.org/updates/Bloxino-0.9.39-Setup.exe",
-  "released_at": "2026-05-11",
-  "sha256": "c2d1fd8e186cf1880e895959b4eab0fb757524f0571a1add5857113f453d7ce1",
-  "latest": "0.9.39",
-  "release_notes_url": "https://github.com/DarkDestroyer2499/EmbeddedCodingTool/releases/tag/v0.9.39"
+  "released_at": "2026-09-06",
+  "latest": "0.9.40",
+  "url": "https://bloxino.org/updates/Bloxino-0.9.40-Setup.exe",
+  "release_notes_url": "https://github.com/DarkDestroyer2499/EmbeddedCodingTool/releases/tag/v0.9.40",
+  "sha256": "f2102ccb68fc79d0156f49c75ddbe1526b0d2921a90bd0402bea099be073b0f8"
 }
